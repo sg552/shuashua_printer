@@ -1,0 +1,29 @@
+<%= form_for(@arranged_acupuncture_point) do |f| %>
+  <% if @arranged_acupuncture_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@arranged_acupuncture_point.errors.count, "error") %> prohibited this arranged_acupuncture_point from being saved:</h2>
+
+      <ul>
+      <% @arranged_acupuncture_point.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :document_id %><br />
+    <%= f.number_field :document_id %>
+  </div>
+  <div class="field">
+    <%= f.label :index %><br />
+    <%= f.number_field :index %>
+  </div>
+  <div class="field">
+    <%= f.label :acupuncture_point_id %><br />
+    <%= f.number_field :acupuncture_point_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

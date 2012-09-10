@@ -1,0 +1,29 @@
+<h1>Listing acupuncture_points</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Index</th>
+    <th>Meridian</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @acupuncture_points.each do |acupuncture_point| %>
+  <tr>
+    <td><%= acupuncture_point.name %></td>
+    <td><%= acupuncture_point.description %></td>
+    <td><%= acupuncture_point.index %></td>
+    <td><%= acupuncture_point.meridian_id %></td>
+    <td><%= link_to 'Show', acupuncture_point %></td>
+    <td><%= link_to 'Edit', edit_acupuncture_point_path(acupuncture_point) %></td>
+    <td><%= link_to 'Destroy', acupuncture_point, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Acupuncture point', new_acupuncture_point_path %>

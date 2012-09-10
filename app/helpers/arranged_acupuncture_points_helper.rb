@@ -1,0 +1,2 @@
+module ArrangedAcupuncturePointsHelper
+end

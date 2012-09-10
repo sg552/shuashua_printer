@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @acupuncture_point.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @acupuncture_point.description %>
+</p>
+
+<p>
+  <b>Index:</b>
+  <%= @acupuncture_point.index %>
+</p>
+
+<p>
+  <b>Meridian:</b>
+  <%= @acupuncture_point.meridian_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_acupuncture_point_path(@acupuncture_point) %> |
+<%= link_to 'Back', acupuncture_points_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Document:</b>
+  <%= @arranged_acupuncture_point.document_id %>
+</p>
+
+<p>
+  <b>Index:</b>
+  <%= @arranged_acupuncture_point.index %>
+</p>
+
+<p>
+  <b>Acupuncture point:</b>
+  <%= @arranged_acupuncture_point.acupuncture_point_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_arranged_acupuncture_point_path(@arranged_acupuncture_point) %> |
+<%= link_to 'Back', arranged_acupuncture_points_path %>

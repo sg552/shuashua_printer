@@ -1,0 +1,5 @@
+== a document automation tool for my teacher
+
+* click
+* save
+* get printable document
