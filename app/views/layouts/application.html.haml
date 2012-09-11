@@ -18,7 +18,7 @@
             %span.icon-bar 11
             %span.icon-bar 22
             %span.icon-bar 33
-          = link_to "开始建立一个新文档", root_path, :class => "brand"
+          = link_to "开始建立一个新文档", new_document_path, :class => "brand"
           .nav-collapse
             %ul.nav
               %li #{link_to "用户和文档列表", documents_path}
@@ -30,7 +30,6 @@
         .row
           .span9
             %p#notice
-              = notice
               = yield
     %hr
     %footer

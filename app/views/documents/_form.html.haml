@@ -1,0 +1,33 @@
+= form_for @document do |f|
+  .field
+    = f.label :user_name, "他的名字"
+    = f.text_field :user_name
+  = image_tag "left_leg_with_points.png", :usemap => "#left_leg_map", :id => "left_leg"
+  %map{:name=>"left_leg_map" }
+    -# 肝经
+    = point_area :coordinates => "35, 565", :title => "大敦", :point_id => "1"
+    = point_area :coordinates => "100, 410", :title => "行间", :point_id => "2"
+    = point_area :coordinates => "100, 420", :title => "太冲", :point_id => "3"
+    = point_area :coordinates => "100, 430", :title => "中封", :point_id => "4"
+    = point_area :coordinates => "100, 440", :title => "蠡沟", :point_id => "5"
+    = point_area :coordinates => "100, 450", :title => "中都", :point_id => "6"
+    = point_area :coordinates => "100, 460", :title => "膝关", :point_id => "7"
+    = point_area :coordinates => "100, 470", :title => "曲泉", :point_id => "8"
+
+    -# 脾经
+    = point_area :coordinates => "130, 410", :title => "行间", :point_id => "2"
+    = point_area :coordinates => "130, 420", :title => "太冲", :point_id => "3"
+    = point_area :coordinates => "130, 430", :title => "中封", :point_id => "4"
+    = point_area :coordinates => "130, 440", :title => "蠡沟", :point_id => "5"
+    = point_area :coordinates => "130, 450", :title => "中都", :point_id => "6"
+    = point_area :coordinates => "130, 460", :title => "膝关", :point_id => "7"
+    = point_area :coordinates => "130, 470", :title => "曲泉", :point_id => "8"
+
+    = point_area :coordinates => "173,260", :title => "地机", :point_id => "8"
+  .actions
+    = f.submit "确定"
+
+:javascript
+  $(function(){
+    $("#left_leg").maphilight();
+  })
