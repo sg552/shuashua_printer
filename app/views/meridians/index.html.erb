@@ -1,8 +1,8 @@
-<h1>Listing meridians</h1>
+<h1>经络列表</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>名字</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,12 +12,12 @@
   <tr>
     <td><%= meridian.name %></td>
     <td><%= link_to 'Show', meridian %></td>
-    <td><%= link_to 'Edit', edit_meridian_path(meridian) %></td>
-    <td><%= link_to 'Destroy', meridian, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '编辑', edit_meridian_path(meridian) %></td>
+    <td><%= link_to 'Destroy', meridian, :confirm => '确定吗？', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Meridian', new_meridian_path %>
+<%= link_to '新建经络', new_meridian_path %>

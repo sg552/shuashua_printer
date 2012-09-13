@@ -21,8 +21,9 @@
           = link_to "开始建立一个新文档", new_document_path, :class => "brand"
           .nav-collapse
             %ul.nav
-              %li #{link_to "用户和文档列表", documents_path}
-              %li #{link_to "经络和穴位列表", meridians_path}
+              %li #{link_to "文档列表", documents_path}
+              %li #{link_to "经络和穴位列表", acupuncture_points_path}
+              -# meridians_path
               %li.active <a href="#about">关于我们</a>
 
     .container

@@ -1,12 +1,11 @@
-<h1>Listing acupuncture_points</h1>
+<h1>穴位列表</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Index</th>
-    <th>Meridian</th>
-    <th></th>
+    <th>名字</th>
+    <th>位置</th>
+    <th>序号</th>
+    <th>所在经络</th>
     <th></th>
     <th></th>
   </tr>
@@ -14,16 +13,15 @@
 <% @acupuncture_points.each do |acupuncture_point| %>
   <tr>
     <td><%= acupuncture_point.name %></td>
-    <td><%= acupuncture_point.description %></td>
+    <td><%= acupuncture_point.position%></td>
     <td><%= acupuncture_point.index %></td>
     <td><%= acupuncture_point.meridian_id %></td>
-    <td><%= link_to 'Show', acupuncture_point %></td>
-    <td><%= link_to 'Edit', edit_acupuncture_point_path(acupuncture_point) %></td>
-    <td><%= link_to 'Destroy', acupuncture_point, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '编辑', edit_acupuncture_point_path(acupuncture_point) %></td>
+    <td><%= link_to '删除', acupuncture_point, :confirm => '确定吗？', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Acupuncture point', new_acupuncture_point_path %>
+<%= link_to '新建穴位', new_acupuncture_point_path %>
