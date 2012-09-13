@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  before_filter :get_by_id, :only => [:show, :edit, :update, :destroy]
   # GET /documents
   # GET /documents.json
   def index
@@ -13,12 +14,6 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
-    @document = Document.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @document }
-    end
   end
 
   # GET /documents/new
@@ -34,13 +29,17 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
-    @document = Document.find(params[:id])
   end
 
   # POST /documents
   # POST /documents.json
   def create
     @document = Document.new(params[:document])
+    unless params[:point_sequence].blank?
+      params[:point_sequence].split(",").each do |point_id|
+        @document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(:acupuncture_point_id => point_id)
+      end
+    end
 
     respond_to do |format|
       if @document.save
@@ -56,7 +55,6 @@ class DocumentsController < ApplicationController
   # PUT /documents/1
   # PUT /documents/1.json
   def update
-    @document = Document.find(params[:id])
 
     respond_to do |format|
       if @document.update_attributes(params[:document])
@@ -72,12 +70,15 @@ class DocumentsController < ApplicationController
   # DELETE /documents/1
   # DELETE /documents/1.json
   def destroy
-    @document = Document.find(params[:id])
     @document.destroy
 
     respond_to do |format|
       format.html { redirect_to documents_url }
       format.json { head :no_content }
     end
+  end
+  private
+  def get_by_id
+    @document = Document.find(params[:id])
   end
 end
