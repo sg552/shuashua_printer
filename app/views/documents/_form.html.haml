@@ -1,13 +1,15 @@
+.alert
+  步骤是： 1. 输入名字，2. 鼠标按顺序点击穴位 3. 点击"保存" 按钮
 = form_for @document do |f|
   .field
     = f.label :user_name, "他的名字"
     = f.text_field :user_name
-  .preview{:style=>"float:right; width: 400px; min-height: 200px; border: 1px solid red; "}
+  .preview{:style=>"float:right; width: 400px; min-height: 200px; border: 2px solid #FFCCCC; "}
     (这里是选好的穴位列表)
     %ol
   .actions{:style=>"float:right; width: 400px; clear:right "}
     = button_to_function "弄错了，重新来", "restart()", :class => "btn"
-    = f.submit "弄好了！", :style => "margin-left: 30px", :class => "btn btn-primary"
+    = f.submit "弄好了, 保存！", :style => "margin-left: 30px", :class => "btn btn-primary"
   = hidden_field_tag :point_sequence
   = render :partial => 'leg_meridian_map'
 
