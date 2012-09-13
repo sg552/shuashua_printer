@@ -2,6 +2,10 @@ require 'spec_helper'
 
 
 describe DocumentsController do
+  render_views
+  before do
+    @document = FactoryGirl.create(:document)
+  end
 
   def valid_attributes
     {}
@@ -16,12 +20,9 @@ describe DocumentsController do
     response.should be_success
   end
 
-  describe "GET show" do
-    it "assigns the requested document as @document" do
-      document = Document.create! valid_attributes
-      get :show, {:id => document.to_param}, valid_session
-      assigns(:document).should eq(document)
-    end
+  it "should GET show" do
+    get :show, :id => @document.id
+    response.should be_success
   end
 
   it "should GET new" do
@@ -29,12 +30,9 @@ describe DocumentsController do
     response.should be_success
   end
 
-  describe "GET edit" do
-    it "assigns the requested document as @document" do
-      document = Document.create! valid_attributes
-      get :edit, {:id => document.to_param}, valid_session
-      assigns(:document).should eq(document)
-    end
+  it "should get edit" do
+    get :edit, :id => @document.id
+    response.should be_success
   end
 
   it "should create with point_sequence" do

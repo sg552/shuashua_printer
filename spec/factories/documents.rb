@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :document do
-    user_name "MyString"
+    user_name "张晓明"
   end
 end
