@@ -53,48 +53,19 @@ describe DocumentsController do
     document.arranged_acupuncture_points.should == []
     response.should redirect_to(document)
   end
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested document" do
-        document = Document.create! valid_attributes
-        # Assuming there are no other documents in the database, this
-        # specifies that the Document created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Document.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => document.to_param, :document => {'these' => 'params'}}, valid_session
-      end
-
-      it "assigns the requested document as @document" do
-        document = Document.create! valid_attributes
-        put :update, {:id => document.to_param, :document => valid_attributes}, valid_session
-        assigns(:document).should eq(document)
-      end
-
-      it "redirects to the document" do
-        document = Document.create! valid_attributes
-        put :update, {:id => document.to_param, :document => valid_attributes}, valid_session
-        response.should redirect_to(document)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the document as @document" do
-        document = Document.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Document.any_instance.stub(:save).and_return(false)
-        put :update, {:id => document.to_param, :document => {}}, valid_session
-        assigns(:document).should eq(document)
-      end
-
-      it "re-renders the 'edit' template" do
-        document = Document.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Document.any_instance.stub(:save).and_return(false)
-        put :update, {:id => document.to_param, :document => {}}, valid_session
-        response.should render_template("edit")
-      end
-    end
+  it "should PUT update with point_sequence(3 values), and create 3 arranged_acupuncture_points" do
+    post :create, :document => { :user_name => "some name"}
+    document = Document.first
+    put :update, :id => document.id, :point_sequence => "2,4,6"
+    document.arranged_acupuncture_points.size.should == 3
+    response.should redirect_to(document)
+  end
+  it "should PUT update without point_sequence" do
+    post :create, :document => { :user_name => "some name"}
+    document = Document.first
+    put :update, :id => document.id
+    document.arranged_acupuncture_points.size.should == 0
+    response.should redirect_to(document)
   end
 
   describe "DELETE destroy" do

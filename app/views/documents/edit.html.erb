@@ -1,6 +1,15 @@
-<h1>Editing document</h1>
+<h1>编辑文档</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+<%= link_to '查看', @document %> |
+<%= link_to '返回', documents_path %>
+<script>
+$(function(){
+  // add selected points to list for EDIT action
+  <% @document.acupuncture_points.each do |point| %>
+    var area_object = $('<area point_id="<%=point.id %>" point_name="<%= point.name %>" point_position="<%= point.position %>" />')
+    add_to_list(area_object)
+  <% end %>
+})
+</script>

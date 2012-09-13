@@ -1,0 +1,15 @@
+- if notice
+  .alert.alert-success
+    = notice
+%p
+  名字:
+  = @document.user_name
+  <br/>在下面显示配置好的穴位
+  %ol
+    - @document.acupuncture_points.each do |point|
+      %li
+        = "#{point.name} , #{point.position}"
+
+
+= link_to 'Edit', edit_document_path(@document)
+= link_to 'Back', documents_path

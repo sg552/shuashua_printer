@@ -36,14 +36,15 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params[:document])
     unless params[:point_sequence].blank?
-      params[:point_sequence].split(",").each do |point_id|
-        @document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(:acupuncture_point_id => point_id)
+      params[:point_sequence].split(",").each_with_index do |point_id, index|
+        @document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(
+          :acupuncture_point_id => point_id, :index => index)
       end
     end
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, :notice => 'Document was successfully created.' }
+        format.html { redirect_to @document, :notice => '文档建立好了.' }
         format.json { render :json => @document, :status => :created, :location => @document }
       else
         format.html { render :action => "new" }
@@ -56,9 +57,16 @@ class DocumentsController < ApplicationController
   # PUT /documents/1.json
   def update
 
+    @document.arranged_acupuncture_points.clear
+    unless params[:point_sequence].blank?
+      params[:point_sequence].split(",").each_with_index do |point_id, index|
+        @document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(
+          :acupuncture_point_id => point_id, :index => index)
+      end
+    end
     respond_to do |format|
       if @document.update_attributes(params[:document])
-        format.html { redirect_to @document, :notice => 'Document was successfully updated.' }
+        format.html { redirect_to @document, :notice => '操作成功.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
