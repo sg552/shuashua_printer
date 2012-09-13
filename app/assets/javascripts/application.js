@@ -19,7 +19,19 @@
 //= require my_utilities
 //
 
-function add_to_list(id){
-  console.info("id: " + id)
+function add_to_list(area_object){
+  var point_list_in_cookie = new cookieList("point_list_in_cookie")
+  point_list_in_cookie.add($(area_object).attr("point_id"))
+  show_in_preview(area_object, ".preview ol")
 }
 
+function show_in_preview(area_object, preview_div_selector){
+  preview_div = $(preview_div_selector)
+  point = $(area_object)
+  preview_div.append("<li>" + point.attr("point_name") + ", " + point.attr("point_position")  + "</li>")
+}
+
+function restart(){
+  $.cookie("point_list_in_cookie", null)
+  $(".preview ol").html("")
+}
