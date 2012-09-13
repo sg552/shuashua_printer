@@ -1,0 +1,19 @@
+%h1 文档列表
+
+= link_to '新建一个文档', new_document_path, :style => "float:left; font-size: 15px"
+
+%table.table.table-striped.table-bordered
+  %tr
+    %th 名字
+    %th{:style => "width: 100px"} 操作
+
+  - @documents.each do |document|
+    %tr
+      %td
+        =link_to document.user_name, document
+      %td
+        = link_to '编辑', edit_document_path(document)
+        = link_to '删除', document, :confirm => '确定吗？', :method => :delete
+
+
+

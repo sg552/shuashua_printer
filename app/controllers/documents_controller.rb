@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_filter :get_by_id, :only => [:show, :edit, :update, :destroy]
+  before_filter :get_by_id, :only => [:show, :edit, :update, :destroy, :show_print_purpose]
   # GET /documents
   # GET /documents.json
   def index
@@ -84,6 +84,10 @@ class DocumentsController < ApplicationController
       format.html { redirect_to documents_url }
       format.json { head :no_content }
     end
+  end
+  # GET
+  def show_print_purpose
+    render :layout => false
   end
   private
   def get_by_id

@@ -24,7 +24,7 @@
               %li #{link_to "文档列表", documents_path}
               %li #{link_to "经络和穴位列表", acupuncture_points_path}
               -# meridians_path
-              %li.active <a href="#about">关于我们</a>
+              -#%li.active <a href="#about">关于我们</a>
 
     .container
       .content
@@ -34,4 +34,6 @@
               = yield
     %hr
     %footer
-      %span.center &copy; 马礼堂六字诀 2012 , powered by Shuashua Paper
+      %span.center
+        &copy; 2012 , powered by
+        = link_to "Shuashua Printer", "https://github.com/sg552/shuashua_printer"

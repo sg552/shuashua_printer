@@ -3,7 +3,11 @@ Jingluoshuoming::Application.routes.draw do
 
   resources :arranged_acupuncture_points
 
-  resources :documents
+  resources :documents do
+    member do
+      get :show_print_purpose
+    end
+  end
 
   resources :meridians
 

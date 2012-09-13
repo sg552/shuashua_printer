@@ -1,15 +1,22 @@
 - if notice
   .alert.alert-success
     = notice
+
+.alert
+  = link_to '如果希望打印它，就点击这个链接，然后在新窗口中阅览，点击右键，选择"打印"', show_print_purpose_document_path(@document)
+  %br
+  也可以复制这些文本到一个新的WORD文件中，然后打印。
+
+
 %p
   名字:
   = @document.user_name
-  <br/>在下面显示配置好的穴位
+  %p 在下面显示配置好的穴位
   %ol
     - @document.acupuncture_points.each do |point|
       %li
         = "#{point.name} , #{point.position}"
 
 
-= link_to 'Edit', edit_document_path(@document)
-= link_to 'Back', documents_path
+= link_to '编辑', edit_document_path(@document)
+= link_to '返回', documents_path
