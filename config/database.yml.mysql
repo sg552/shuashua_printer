@@ -1,0 +1,27 @@
+development:
+  adapter: mysql2
+  database: jingluo
+  username: root
+  host: localhost
+  password: ""
+
+#development: # for converting sqlite3 to mysql
+#  adapter: sqlite3
+#  database: db/production.sqlite3
+#  pool: 5
+#  timeout: 5000
+
+test:
+  adapter: mysql2
+  database: jingluo_test
+  username: root
+  host: localhost
+  password: ""
+
+production:
+  adapter: mysql2
+  database: jingluo
+  username: root
+  host: localhost
+  password: ""
+
