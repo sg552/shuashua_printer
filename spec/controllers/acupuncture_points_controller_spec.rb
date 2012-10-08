@@ -3,6 +3,9 @@ require 'spec_helper'
 
 describe AcupuncturePointsController do
   render_views
+  before do
+    login_user
+  end
 
   def valid_attributes
     {}

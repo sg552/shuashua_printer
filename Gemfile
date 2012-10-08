@@ -30,3 +30,5 @@ gem 'capistrano'
 gem 'kaminari', "0.13.0"
 gem "bootstrap-kaminari-views", "~> 0.0.2"
 gem "haml", "3.1.4"
+gem "devise", "2.1.2"
+gem "cancan", "1.6.7"

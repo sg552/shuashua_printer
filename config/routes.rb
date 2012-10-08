@@ -1,4 +1,6 @@
 Jingluoshuoming::Application.routes.draw do
+  devise_for :users
+
   resources :acupuncture_points
 
   resources :arranged_acupuncture_points

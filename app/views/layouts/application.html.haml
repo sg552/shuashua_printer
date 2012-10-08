@@ -31,6 +31,12 @@
         .row
           .span9
             %p#notice
+            .notice
+              -if notice
+                = notice
+            .alert
+              -if alert
+                = alert
               = yield
     %hr
     %footer
