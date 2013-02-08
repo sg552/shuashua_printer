@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AcupuncturePointsController < ApplicationController
   # GET /acupuncture_points
   # GET /acupuncture_points.json

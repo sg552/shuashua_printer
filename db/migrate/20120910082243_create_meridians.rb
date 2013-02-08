@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateMeridians < ActiveRecord::Migration
   def change
     create_table :meridians do |t|

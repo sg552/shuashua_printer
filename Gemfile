@@ -20,12 +20,13 @@ group :development, :test do
   gem 'factory_girl_rails', '1.3.0'
   gem 'rspec-rails', '2.8.1'
   gem 'rspec-core'
+  gem 'magic_encoding'
 end
 
 gem 'jquery-rails'
 
 # Deploy with Capistrano
-gem 'capistrano'
+#gem 'capistrano'
 
 gem 'kaminari', "0.13.0"
 gem "bootstrap-kaminari-views", "~> 0.0.2"

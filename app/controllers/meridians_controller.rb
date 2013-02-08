@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MeridiansController < ApplicationController
   # GET /meridians
   # GET /meridians.json

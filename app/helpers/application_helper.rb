@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   # options:  must give the :coordinates and :title
   def point_area(options = {} )

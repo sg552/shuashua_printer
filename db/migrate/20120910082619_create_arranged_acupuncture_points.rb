@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateArrangedAcupuncturePoints < ActiveRecord::Migration
   def change
     create_table :arranged_acupuncture_points do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DocumentsController < ApplicationController
   before_filter :get_by_id, :only => [:show, :edit, :update, :destroy, :show_print_purpose]
   # GET /documents
