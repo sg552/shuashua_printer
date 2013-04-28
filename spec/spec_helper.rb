@@ -12,6 +12,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.infer_base_class_for_anonymous_controllers = false
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 
   # Use color in STDOUT
   config.color_enabled = true
@@ -23,5 +25,4 @@ RSpec.configure do |config|
   #:documentation ,:progress, :html, :textmate
   config.formatter = :progress
 end
-
 

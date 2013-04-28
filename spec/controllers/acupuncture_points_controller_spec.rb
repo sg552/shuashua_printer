@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-
 describe AcupuncturePointsController do
   render_views
   before do
