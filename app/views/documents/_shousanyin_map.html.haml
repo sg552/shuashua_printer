@@ -3,11 +3,39 @@
   %ol
 = image_tag "shousanyin.jpg", :usemap => "#shousanyin_map", :id => "shousanyin"
 %map{:name=>"shousanyin_map" }
-  -# 肝经
-  = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
+  -# 心经
+  = point_area :coordinates => "415, 208", :title => "少海"
+  = point_area :coordinates => "355, 495", :title => "灵道"
+  = point_area :coordinates => "348, 515", :title => "通里"
+  = point_area :coordinates => "338, 529", :title => "阴郄"
+  = point_area :coordinates => "334, 543", :title => "神门"
+  = point_area :coordinates => "315, 650", :title => "少府"
+  = point_area :coordinates => "307, 748", :title => "少冲"
 
-  -# 脾经
-  = point_area :coordinates => "51, 567", :title => "隐白", :point_id => "9", :radius => 7
+  -# 心包经
+  = point_area :coordinates => "346, 212", :title => "曲泽"
+  = point_area :coordinates => "339, 403", :title => "郄门"
+  = point_area :coordinates => "325, 456", :title => "间使"
+  = point_area :coordinates => "320, 484", :title => "内关"
+  = point_area :coordinates => "306, 545", :title => "大陵"
+  = point_area :coordinates => "280, 655", :title => "劳宫"
+  = point_area :coordinates => "266, 818", :title => "中冲"
 
-  -# 肾经
-  = point_area :coordinates => "130, 575", :title => "涌泉", :point_id => "18"
+  -# 肺经
+  = point_area :coordinates => "295, 212", :title => "尺泽"
+  = point_area :coordinates => "275, 350", :title => "孔最"
+  = point_area :coordinates => "265, 497", :title => "列缺"
+  = point_area :coordinates => "263, 521", :title => "经渠"
+  = point_area :coordinates => "259, 543", :title => "太渊"
+  = point_area :coordinates => "215, 600", :title => "鱼际"
+  = point_area :coordinates => "165, 680", :title => "少商"
+
+:javascript
+  $(function(){
+    $("#shousanyin").maphilight();
+    $.cookie("point_list_in_cookie", "")
+    $("form").submit(function(){
+      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+    });
+  })
+
