@@ -26,12 +26,14 @@ function add_to_list(area_object){
 }
 
 function show_in_preview(area_object, preview_div){
-  //preview_div = $(preview_div_selector)
   point = $(area_object)
-  preview_div.append("<li>" + point.attr("point_name") + ", " + point.attr("point_position")  + "</li>")
+  preview_div.children('ol').append("<li>" + point.attr("point_name") + ", " + point.attr("point_position")  + "</li>")
 }
 
 function restart(){
   $.cookie("point_list_in_cookie", null)
-  $(".preview ol").html("")
+  selected_tab_index = $("#tabs").tabs('option', 'selected');
+  selected_tab_id = $($('#tabs div.ui-tabs-panel')[selected_tab_index]).attr("id")
+  selector = "#" + selected_tab_id + " .preview ol";
+  $(selector).html("")
 }
