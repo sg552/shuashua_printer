@@ -3,36 +3,45 @@
   %ol
 = image_tag "shousanyang.jpg", :usemap => "#shousanyang_map", :id => "shousanyang"
 %map{:name=>"shousanyang_map" }
-  -# 肝经
-  = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
-  = point_area :coordinates => "85, 547", :title => "行间", :point_id => "2"
-  = point_area :coordinates => "111, 537", :title => "太冲", :point_id => "3"
-  = point_area :coordinates => "167, 496", :title => "中封", :point_id => "4"
-  = point_area :coordinates => "170, 373", :title => "蠡沟", :point_id => "5"
-  = point_area :coordinates => "163, 326", :title => "中都", :point_id => "6"
-  = point_area :coordinates => "191, 191", :title => "膝关", :point_id => "7"
-  = point_area :coordinates => "191, 145", :title => "曲泉", :point_id => "8", :radius => 8
+  -# 小肠经
+  = point_area :coordinates => "275, 760", :title => "少泽"
+  = point_area :coordinates => "250, 680", :title => "前谷"
+  = point_area :coordinates => "245, 640", :title => "后溪"
+  = point_area :coordinates => "243, 590", :title => "腕骨"
+  = point_area :coordinates => "250, 543", :title => "阳谷"
+  = point_area :coordinates => "243, 522", :title => "养老"
+  = point_area :coordinates => "206, 415", :title => "支正"
+  = point_area :coordinates => "180, 230", :title => "小海"
 
-  -# 脾经
-  = point_area :coordinates => "51, 567", :title => "隐白", :point_id => "9", :radius => 7
-  = point_area :coordinates => "83, 569", :title => "大都", :point_id => "10"
-  = point_area :coordinates => "110, 567", :title => "太白", :point_id => "11"
-  = point_area :coordinates => "129, 555", :title => "公孙", :point_id => "12"
-  = point_area :coordinates => "183, 508", :title => "商丘", :point_id => "13"
-  = point_area :coordinates => "198, 416", :title => "三阴交", :point_id => "14"
-  = point_area :coordinates => "183, 350", :title => "漏谷", :point_id => "15"
-  = point_area :coordinates => "173, 260", :title => "地机", :point_id => "16"
-  = point_area :coordinates => "168, 193", :title => "阴陵泉", :point_id => "17"
-  = point_area :coordinates => "175, 80", :title => "血海", :point_id => "28"
+  -# 三焦经
+  = point_area :coordinates => "293, 775", :title => "关冲"
+  = point_area :coordinates => "280, 670", :title => "液门"
+  = point_area :coordinates => "280, 635", :title => "中渚"
+  = point_area :coordinates => "275, 555", :title => "阳池"
+  = point_area :coordinates => "278, 496", :title => "外关"
+  = point_area :coordinates => "273, 470", :title => "支沟"
+  = point_area :coordinates => "245, 475", :title => "会宗"
+  = point_area :coordinates => "270, 440", :title => "三阳络"
+  = point_area :coordinates => "255, 358", :title => "四渎"
 
-  -# 肾经
-  = point_area :coordinates => "130, 575", :title => "涌泉", :point_id => "18"
-  = point_area :coordinates => "167, 546", :title => "然谷", :point_id => "19"
-  = point_area :coordinates => "227, 479", :title => "太溪", :point_id => "20"
-  = point_area :coordinates => "236, 496", :title => "大钟", :point_id => "21"
-  = point_area :coordinates => "223, 513", :title => "水泉", :point_id => "22"
-  = point_area :coordinates => "200, 493", :title => "照海", :point_id => "23"
-  = point_area :coordinates => "231, 438", :title => "复溜", :point_id => "24"
-  = point_area :coordinates => "211, 438", :title => "交信", :point_id => "25"
-  = point_area :coordinates => "224, 368", :title => "筑宾", :point_id => "26"
-  = point_area :coordinates => "208, 147", :title => "阴谷", :point_id => "27", :radius => 8
+  -# 大肠经
+  = point_area :coordinates => "353, 770", :title => "商阳"
+  = point_area :coordinates => "363, 690", :title => "二间"
+  = point_area :coordinates => "359, 660", :title => "三间"
+  = point_area :coordinates => "356, 593", :title => "合谷"
+  = point_area :coordinates => "338, 545", :title => "阳溪"
+  = point_area :coordinates => "318, 470", :title => "偏历"
+  = point_area :coordinates => "314, 413", :title => "温溜"
+  = point_area :coordinates => "", :title => "下廉"
+  = point_area :coordinates => "", :title => "上廉"
+  = point_area :coordinates => "", :title => "手三里"
+  = point_area :coordinates => "290, 229", :title => "曲池"
+:javascript
+  $(function(){
+    $("#shousanyang").maphilight();
+    $.cookie("point_list_in_cookie", "")
+    $("form").submit(function(){
+      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+    });
+  })
+
