@@ -8,3 +8,14 @@
 body {
   padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
+
+.preview {
+  position: fixed;
+  top: 50px;
+  left: 550px;
+  width: 400px;
+  min-height: 200px; border: 2px solid #D8CEF6;
+  max-height: 500px;
+  overflow: scroll;
+  background-color: #F6D8CE;
+}

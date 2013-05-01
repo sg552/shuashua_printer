@@ -4,21 +4,27 @@
   .field
     = f.label :user_name, "他的名字"
     = f.text_field :user_name
-  .preview{:style=>"float:right; width: 400px; min-height: 200px; border: 2px solid #FFCCCC; "}
-    (这里是选好的穴位列表)
-    %ol
+  #tabs
+    %ul
+      %li #{link_to "第一组足三阴", "#tab1" }
+      %li #{link_to "第二组手三阴", "#tab2" }
+      %li #{link_to "第三组手三阳", "#tab3" }
+      %li #{link_to "第四组足三阳", "#tab4" }
+    #tab1
+      = render :partial => 'zusanyin_map'
+    #tab2
+      = render :partial => 'shousanyin_map'
+    #tab3
+      = render :partial => 'shousanyang_map'
+    #tab4
+      = render :partial => 'zusanyang_map'
+
   .actions{:style=>"float:right; width: 400px; clear:right "}
     = button_to_function "弄错了，重新来", "restart()", :class => "btn"
     = f.submit "弄好了, 保存！", :style => "margin-left: 30px", :class => "btn btn-primary"
   = hidden_field_tag :point_sequence
-  = render :partial => 'leg_meridian_map'
-
 
 :javascript
   $(function(){
-    $.cookie("point_list_in_cookie", "")
-    $("#left_leg").maphilight();
-    $("form").submit(function(){
-      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
-    });
+    $('#tabs').tabs();
   })

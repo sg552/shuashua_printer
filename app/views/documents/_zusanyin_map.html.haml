@@ -1,7 +1,7 @@
-.preview_zusanyin{:style=>"float:right; width: 400px; min-height: 200px; border: 2px solid #FFCCCC; "}
-  (这里是选好的穴位列表)
+.preview
+  (足三阴：选好的穴位列表)
   %ol
-= image_tag "left_leg_with_points.png", :usemap => "#left_leg_map", :id => "left_leg"
+= image_tag "left_leg_with_points.png", :usemap => "#zusanyin", :id => "zusanyin"
 %map{:name=>"zusanyin" }
   -# 肝经
   = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
@@ -43,4 +43,5 @@
     $("form").submit(function(){
       $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
     });
+    console.info('hi')
   })

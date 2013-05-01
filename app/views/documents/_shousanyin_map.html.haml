@@ -1,0 +1,13 @@
+.preview
+  (手三阴：选好的穴位列表)
+  %ol
+= image_tag "shousanyin.jpg", :usemap => "#shousanyin_map", :id => "shousanyin"
+%map{:name=>"shousanyin_map" }
+  -# 肝经
+  = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
+
+  -# 脾经
+  = point_area :coordinates => "51, 567", :title => "隐白", :point_id => "9", :radius => 7
+
+  -# 肾经
+  = point_area :coordinates => "130, 575", :title => "涌泉", :point_id => "18"

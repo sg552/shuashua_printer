@@ -1,8 +1,8 @@
-.preview_zusanyin{:style=>"float:right; width: 400px; min-height: 200px; border: 2px solid #FFCCCC; "}
+.preview
   (这里是选好的穴位列表)
   %ol
-= image_tag "left_leg_with_points.png", :usemap => "#left_leg_map", :id => "left_leg"
-%map{:name=>"zusanyin" }
+= image_tag "shousanyang.jpg", :usemap => "#shousanyang_map", :id => "shousanyang"
+%map{:name=>"shousanyang_map" }
   -# 肝经
   = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
   = point_area :coordinates => "85, 547", :title => "行间", :point_id => "2"
@@ -36,11 +36,3 @@
   = point_area :coordinates => "211, 438", :title => "交信", :point_id => "25"
   = point_area :coordinates => "224, 368", :title => "筑宾", :point_id => "26"
   = point_area :coordinates => "208, 147", :title => "阴谷", :point_id => "27", :radius => 8
-:javascript
-  $(function(){
-    $("#zusanyin").maphilight();
-    $.cookie("point_list_in_cookie", "")
-    $("form").submit(function(){
-      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
-    });
-  })
