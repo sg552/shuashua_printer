@@ -3,36 +3,48 @@
   %ol
 = image_tag "zusanyang.jpg", :usemap => "#zusanyang_map", :id => "zusanyang"
 %map{:name=>"zusanyang_map" }
-  -# 肝经
-  = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
-  = point_area :coordinates => "85, 547", :title => "行间", :point_id => "2"
-  = point_area :coordinates => "111, 537", :title => "太冲", :point_id => "3"
-  = point_area :coordinates => "167, 496", :title => "中封", :point_id => "4"
-  = point_area :coordinates => "170, 373", :title => "蠡沟", :point_id => "5"
-  = point_area :coordinates => "163, 326", :title => "中都", :point_id => "6"
-  = point_area :coordinates => "191, 191", :title => "膝关", :point_id => "7"
-  = point_area :coordinates => "191, 145", :title => "曲泉", :point_id => "8", :radius => 8
+  -# 胃经
+  = point_area :coordinates => "285, 335", :title => "足三里"
+  = point_area :coordinates => "275, 414", :title => "上巨虚"
+  = point_area :coordinates => "265, 475", :title => "条口"
+  = point_area :coordinates => "265, 508", :title => "下巨虚"
+  = point_area :coordinates => "248, 475", :title => "丰隆"
+  = point_area :coordinates => "263, 702", :title => "解溪"
+  = point_area :coordinates => "335, 742", :title => "冲阳"
+  = point_area :coordinates => "389, 752", :title => "陷谷"
+  = point_area :coordinates => "430, 760", :title => "内庭"
+  = point_area :coordinates => "479, 770", :title => "厉兑"
 
-  -# 脾经
-  = point_area :coordinates => "51, 567", :title => "隐白", :point_id => "9", :radius => 7
-  = point_area :coordinates => "83, 569", :title => "大都", :point_id => "10"
-  = point_area :coordinates => "110, 567", :title => "太白", :point_id => "11"
-  = point_area :coordinates => "129, 555", :title => "公孙", :point_id => "12"
-  = point_area :coordinates => "183, 508", :title => "商丘", :point_id => "13"
-  = point_area :coordinates => "198, 416", :title => "三阴交", :point_id => "14"
-  = point_area :coordinates => "183, 350", :title => "漏谷", :point_id => "15"
-  = point_area :coordinates => "173, 260", :title => "地机", :point_id => "16"
-  = point_area :coordinates => "168, 193", :title => "阴陵泉", :point_id => "17"
-  = point_area :coordinates => "175, 80", :title => "血海", :point_id => "28"
+  -# 胆经
+  = point_area :coordinates => "240, 309", :title => "阳陵泉"
+  = point_area :coordinates => "210, 508", :title => "阳交"
+  = point_area :coordinates => "235, 508", :title => "外丘"
+  = point_area :coordinates => "220, 560", :title => "光明"
+  = point_area :coordinates => "220, 590", :title => "阳辅"
+  = point_area :coordinates => "218, 620", :title => "悬钟"
+  = point_area :coordinates => "218, 728", :title => "丘墟"
+  = point_area :coordinates => "325, 770", :title => "足临泣"
+  = point_area :coordinates => "379, 779", :title => "地五会"
+  = point_area :coordinates => "420, 780", :title => "侠溪"
+  = point_area :coordinates => "462, 785", :title => "足窍阴"
 
-  -# 肾经
-  = point_area :coordinates => "130, 575", :title => "涌泉", :point_id => "18"
-  = point_area :coordinates => "167, 546", :title => "然谷", :point_id => "19"
-  = point_area :coordinates => "227, 479", :title => "太溪", :point_id => "20"
-  = point_area :coordinates => "236, 496", :title => "大钟", :point_id => "21"
-  = point_area :coordinates => "223, 513", :title => "水泉", :point_id => "22"
-  = point_area :coordinates => "200, 493", :title => "照海", :point_id => "23"
-  = point_area :coordinates => "231, 438", :title => "复溜", :point_id => "24"
-  = point_area :coordinates => "211, 438", :title => "交信", :point_id => "25"
-  = point_area :coordinates => "224, 368", :title => "筑宾", :point_id => "26"
-  = point_area :coordinates => "208, 147", :title => "阴谷", :point_id => "27", :radius => 8
+  -# 膀胱经
+  = point_area :coordinates => "182, 508", :title => "飞扬"
+  = point_area :coordinates => "188, 620", :title => "跗阳"
+  = point_area :coordinates => "188, 710", :title => "昆仑"
+  = point_area :coordinates => "188, 770", :title => "仆参"
+  = point_area :coordinates => "215, 751", :title => "申脉"
+  = point_area :coordinates => "", :title => "金门"
+  = point_area :coordinates => "", :title => "京骨"
+  = point_area :coordinates => "", :title => "束骨"
+  = point_area :coordinates => "", :title => "足通谷"
+  = point_area :coordinates => "", :title => "至阴"
+:javascript
+  $(function(){
+    $("#zusanyang").maphilight();
+    $.cookie("point_list_in_cookie", "")
+    $("form").submit(function(){
+      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+    });
+  })
+
