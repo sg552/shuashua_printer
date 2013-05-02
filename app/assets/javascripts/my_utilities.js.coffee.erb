@@ -83,3 +83,22 @@ this.$a =   (id,tag) ->
   re = if( id && typeof(id) != "string" ) then id else document.getElementById(id)
   return if !tag then re else re.getElementsByTagName(tag)
 
+
+@cookie_base_name = "point_list_in_cookie_"
+
+@add_to_list = (area_object, meridian_type) ->
+  return if meridian_type.blank?
+  point_list_in_cookie = new cookieList(@cookie_base_name+meridian_type)
+  point_list_in_cookie.add($(area_object).attr("point_id"))
+  show_in_preview(area_object, $(area_object).parent().siblings(".preview") )
+
+@show_in_preview = (area_object, preview_div) ->
+  point = $(area_object)
+  preview_div.children('ol').append("<li>" + point.attr("point_name") + ", " + point.attr("point_position")  + "</li>")
+
+@restart = (meridian_type) ->
+  $.cookie(@cookie_base_name + meridian_type, null)
+  selected_tab_index = $("#tabs").tabs('option', 'selected');
+  selected_tab_id = $($('#tabs div.ui-tabs-panel')[selected_tab_index]).attr("id")
+  selector = "#" + selected_tab_id + " .preview ol";
+  $(selector).html("")

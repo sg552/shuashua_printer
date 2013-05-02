@@ -10,8 +10,7 @@ gem 'json'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'haml_coffee_assets', '1.12.0'
   gem "execjs", "1.3.0"
   gem 'uglifier', '>= 1.0.3'
 end
@@ -33,3 +32,4 @@ gem "bootstrap-kaminari-views", "~> 0.0.2"
 gem "haml", "3.1.4"
 gem "devise", "2.1.2"
 gem "cancan", "1.6.7"
+gem 'coffeebeans', '1.0.1'
