@@ -44,18 +44,14 @@ describe DocumentsController do
     response.should redirect_to(document)
   end
   it "should PUT update with point_sequence(3 values), and create 3 arranged_acupuncture_points" do
-    post :create, :document => { :user_name => "some name"}
-    document = Document.first
-    put :update, :id => document.id, :point_sequence => "2,4,6"
-    document.arranged_acupuncture_points.size.should == 3
-    response.should redirect_to(document)
+    put :update, :id => @document.id, :point_sequence => "2,4,6"
+    @document.reload.arranged_acupuncture_points.size.should == 3
+    response.should redirect_to(@document)
   end
   it "should PUT update without point_sequence" do
-    post :create, :document => { :user_name => "some name"}
-    document = Document.first
-    put :update, :id => document.id
-    document.arranged_acupuncture_points.size.should == 0
-    response.should redirect_to(document)
+    put :update, :id => @document.id
+    @document.reload.arranged_acupuncture_points.size.should == 0
+    response.should redirect_to(@document)
   end
 
   describe "DELETE destroy" do

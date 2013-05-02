@@ -15,7 +15,7 @@
     <td><%= acupuncture_point.name %></td>
     <td><%= acupuncture_point.position%></td>
     <td><%= acupuncture_point.index %></td>
-    <td><%= acupuncture_point.meridian.name %></td>
+    <td><%= acupuncture_point.meridian.try(:name )%></td>
     <td><%= link_to '编辑', edit_acupuncture_point_path(acupuncture_point) %>
       <%= link_to '删除', acupuncture_point, :confirm => '确定吗？', :method => :delete %></td>
   </tr>
