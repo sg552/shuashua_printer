@@ -13,7 +13,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.infer_base_class_for_anonymous_controllers = false
   config.include Devise::TestHelpers, :type => :controller
-  config.extend ControllerMacros, :type => :controller
+  config.include ControllerMacros, :type => :controller
 
   # Use color in STDOUT
   config.color_enabled = true

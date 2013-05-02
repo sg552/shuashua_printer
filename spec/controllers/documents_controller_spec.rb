@@ -1,19 +1,10 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
-
-
 describe DocumentsController do
   render_views
   before do
+    login_user
     @document = FactoryGirl.create(:document)
-  end
-
-  def valid_attributes
-    {}
-  end
-
-  def valid_session
-    {}
   end
 
   it "should GET index" do
@@ -69,16 +60,9 @@ describe DocumentsController do
 
   describe "DELETE destroy" do
     it "destroys the requested document" do
-      document = Document.create! valid_attributes
       expect {
-        delete :destroy, {:id => document.to_param}, valid_session
+        delete :destroy, {:id => @document.id}
       }.to change(Document, :count).by(-1)
-    end
-
-    it "redirects to the documents list" do
-      document = Document.create! valid_attributes
-      delete :destroy, {:id => document.to_param}, valid_session
-      response.should redirect_to(documents_url)
     end
   end
 

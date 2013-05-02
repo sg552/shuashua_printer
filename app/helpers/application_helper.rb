@@ -12,8 +12,8 @@ module ApplicationHelper
   href='#'
   onclick='add_to_list(this);return false'
   point_id="#{point_id}"
-  point_position="#{acupuncture_point.position}"
-  point_name="#{acupuncture_point.name}"
+  point_position="#{acupuncture_point.try(:position)}"
+  point_name="#{acupuncture_point.try :name}"
   shape='circle'
   title="#{options[:title]}" />
     }
