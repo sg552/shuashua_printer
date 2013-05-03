@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+#source 'https://ruby.taobao.org'
 
 gem 'rails', '3.2.2'
 gem 'mysql2'
@@ -10,7 +11,6 @@ gem 'json'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'haml_coffee_assets', '1.12.0'
   gem "execjs", "1.3.0"
   gem 'uglifier', '>= 1.0.3'
 end
