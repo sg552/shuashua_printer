@@ -1,19 +1,15 @@
 <%= form_for(@meridian) do |f| %>
-  <% if @meridian.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@meridian.errors.count, "error") %> prohibited this meridian from being saved:</h2>
-
-      <ul>
-      <% @meridian.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :meridian_type %><br />
+    <%= f.text_field :meridian_type %>
   </div>
   <div class="actions">
     <%= f.submit %>
