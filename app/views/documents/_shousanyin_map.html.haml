@@ -1,8 +1,10 @@
+- meridian_category_name = 'shousanyin'
 .preview
   (手三阴：选好的穴位列表)
   %ol
-= image_tag "shousanyin.jpg", :usemap => "#shousanyin_map", :id => "shousanyin"
-%map{:name=>"shousanyin_map" }
+= image_tag "shousanyin.jpg", :usemap => "##{meridian_category_name}", :id => meridian_category_name
+= hidden_field_tag "point_sequence_#{meridian_category_name}"
+%map{:name=> meridian_category_name}
   -# 心经
   = point_area :coordinates => "415, 208", :title => "少海"
   = point_area :coordinates => "355, 495", :title => "灵道"
@@ -33,9 +35,9 @@
 :javascript
   $(function(){
     $("#shousanyin").maphilight();
-    $.cookie("point_list_in_cookie", "")
+    $.cookie("point_list_in_cookie_shousanyin", "");
     $("form").submit(function(){
-      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+      $("#point_sequence_shousanyin").val(
+        new cookieList('point_list_in_cookie_shousanyin').items())
     });
   })
-

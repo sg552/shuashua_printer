@@ -1,8 +1,10 @@
+- meridian_category_name = 'shousanyang'
 .preview
   (这里是选好的穴位列表)
   %ol
-= image_tag "shousanyang.jpg", :usemap => "#shousanyang_map", :id => "shousanyang"
-%map{:name=>"shousanyang_map" }
+= image_tag "shousanyang.jpg", :usemap => "##{meridian_category_name}", :id => meridian_category_name
+= hidden_field_tag "point_sequence_#{meridian_category_name}"
+%map{:name=> meridian_category_name}
   -# 小肠经
   = point_area :coordinates => "275, 760", :title => "少泽"
   = point_area :coordinates => "250, 680", :title => "前谷"
@@ -39,9 +41,9 @@
 :javascript
   $(function(){
     $("#shousanyang").maphilight();
-    $.cookie("point_list_in_cookie", "")
+    $.cookie("point_list_in_cookie_shousanyang", "");
     $("form").submit(function(){
-      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+      $("#point_sequence_shousanyang").val(
+        new cookieList('point_list_in_cookie_shousanyang').items())
     });
   })
-

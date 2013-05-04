@@ -18,12 +18,7 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(params[:document])
-    unless params[:point_sequence].blank?
-      params[:point_sequence].split(",").each_with_index do |point_id, index|
-        @document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(
-          :acupuncture_point_id => point_id, :index => index)
-      end
-    end
+    save_arranged_acupuncture_points(@document, params)
 
     if @document.save
       redirect_to @document, :notice => '文档建立好了.'
@@ -33,14 +28,8 @@ class DocumentsController < ApplicationController
   end
 
   def update
-
     @document.arranged_acupuncture_points.clear
-    unless params[:point_sequence].blank?
-      params[:point_sequence].split(",").each_with_index do |point_id, index|
-        @document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(
-          :acupuncture_point_id => point_id, :index => index)
-      end
-    end
+    save_arranged_acupuncture_points(@document, params)
     if @document.update_attributes(params[:document])
       redirect_to @document, :notice => '操作成功.'
     else
@@ -59,5 +48,17 @@ class DocumentsController < ApplicationController
   private
   def get_by_id
     @document = Document.find(params[:id])
+  end
+
+  def save_arranged_acupuncture_points(document, params)
+    ['zusanyin', 'shousanyin', 'zusanyang', 'shousanyang'].each do |meridian_category|
+      parameter_name = "point_sequence_#{meridian_category}"
+      unless params[parameter_name].blank?
+        params[parameter_name].split(",").each_with_index do |point_id, index|
+          document.arranged_acupuncture_points << ArrangedAcupuncturePoint.new(
+            :acupuncture_point_id => point_id, :index => index)
+        end
+      end
+    end
   end
 end

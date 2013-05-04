@@ -1,8 +1,11 @@
+- meridian_category_name = 'zusanyin'
+
 .preview
   (足三阴：选好的穴位列表)
   %ol
-= image_tag "left_leg_with_points.png", :usemap => "#zusanyin", :id => "zusanyin"
-%map{:name=>"zusanyin" }
+= image_tag "left_leg_with_points.png", :usemap => "##{meridian_category_name}", :id => meridian_category_name
+= hidden_field_tag "point_sequence_#{meridian_category_name}"
+%map{:name=> meridian_category_name}
   -# 肝经
   = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
   = point_area :coordinates => "85, 547", :title => "行间", :point_id => "2"
@@ -39,8 +42,9 @@
 :javascript
   $(function(){
     $("#zusanyin").maphilight();
-    $.cookie("point_list_in_cookie", "")
+    $.cookie("point_list_in_cookie_zusanyin", "");
     $("form").submit(function(){
-      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+      $("#point_sequence_zusanyin").val(
+        new cookieList('point_list_in_cookie_zusanyin').items())
     });
   })

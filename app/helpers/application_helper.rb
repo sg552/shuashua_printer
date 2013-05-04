@@ -5,6 +5,7 @@ module ApplicationHelper
     options = options.reverse_merge(:radius => 10)
     point_id = options[:point_id]
     acupuncture_point = get_acupuncture_point :point_name => options[:title], :point_id => options[:point_id]
+    point_id  = acupuncture_point.id if point_id.blank?
     meridian_type = get_meridian_type(acupuncture_point)
     raw %Q{
 <area coords='#{options[:coordinates]},#{options[:radius]}'
@@ -35,12 +36,11 @@ module ApplicationHelper
     shousanyang = Meridian.where("name like ? or name like ? or name like ?" , "%大肠经%", "%三焦经%", "%小肠经%")
     zusanyang = Meridian.where("name like ? or name like ? or name like ?" , "%胃经%", "%胆经%", "%膀胱经%")
     meridian_id = acupuncture_point.try(:meridian).try(:id).try(:to_i)
-    puts "== meridian_id: #{meridian_id}"
-    meridian_type =  case meridian_id
-      when in?(zusanyin.map(&:id)) then 'zusanyin'
-      when in?(shousanyin.map(&:id)) then 'shousanyin'
-      when in?(shousanyang.map(&:id)) then 'shousanyang'
-      when in?(zusanyang.map(&:id)) then 'zusanyang'
+    meridian_type = case
+      when meridian_id.in?(zusanyin.map(&:id)) then 'zusanyin'
+      when meridian_id.in?(shousanyin.map(&:id)) then 'shousanyin'
+      when meridian_id.in?(shousanyang.map(&:id)) then 'shousanyang'
+      when meridian_id.in?(zusanyang.map(&:id)) then 'zusanyang'
       else 'unknow'
     end
     return meridian_type

@@ -1,8 +1,10 @@
+- meridian_category_name = 'zusanyang'
 .preview
   (这里是选好的穴位列表)
   %ol
-= image_tag "zusanyang.jpg", :usemap => "#zusanyang_map", :id => "zusanyang"
-%map{:name=>"zusanyang_map" }
+= image_tag "zusanyang.jpg", :usemap => "##{meridian_category_name}", :id => meridian_category_name
+= hidden_field_tag "point_sequence_#{meridian_category_name}"
+%map{:name=> meridian_category_name}
   -# 胃经
   = point_area :coordinates => "285, 335", :title => "足三里"
   = point_area :coordinates => "275, 414", :title => "上巨虚"
@@ -42,9 +44,9 @@
 :javascript
   $(function(){
     $("#zusanyang").maphilight();
-    $.cookie("point_list_in_cookie", "")
+    $.cookie("point_list_in_cookie_zusanyang", "");
     $("form").submit(function(){
-      $("#point_sequence").val(new cookieList("point_list_in_cookie").items())
+      $("#point_sequence_zusanyang").val(
+        new cookieList('point_list_in_cookie_zusanyang').items())
     });
   })
-
