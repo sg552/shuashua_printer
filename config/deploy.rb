@@ -8,9 +8,9 @@ set :repository, "git://github.com/sg552/shuashua_printer.git"
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "192.168.1.35"                          # Your HTTP server, Apache/etc
-role :app, "192.168.1.35"                          # This may be the same as your `Web` server
-role :db,  "192.168.1.35", :primary => true # This is where Rails migrations will run
+role :web, "192.168.1.36"                          # Your HTTP server, Apache/etc
+role :app, "192.168.1.36"                          # This may be the same as your `Web` server
+role :db,  "192.168.1.36", :primary => true # This is where Rails migrations will run
 
 set :deploy_to, "/apps/shuashua_printer/"
 set :user, "sg552"
