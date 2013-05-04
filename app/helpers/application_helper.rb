@@ -19,6 +19,14 @@ module ApplicationHelper
   title="#{options[:title]}" />
     }
   end
+  def chinese_name(meridian_type)
+    case meridian_type
+      when 'zusanyin' then '足三阴'
+      when 'shousanyin' then '手三阴'
+      when 'shousanyang' then '手三阳'
+      when 'zusanyang' then '足三阳'
+    end
+  end
   private
   def get_acupuncture_point options
     if options[:point_id].present?
@@ -31,10 +39,10 @@ module ApplicationHelper
     return result
   end
   def get_meridian_type acupuncture_point
-    zusanyin = Meridian.where("name like ? or name like ? or name like ?" , "%肝经%", "%脾经%", "%肾经%")
-    shousanyin = Meridian.where("name like ? or name like ? or name like ?" , "%心包经%", "%肺经%", "%心经%")
-    shousanyang = Meridian.where("name like ? or name like ? or name like ?" , "%大肠经%", "%三焦经%", "%小肠经%")
-    zusanyang = Meridian.where("name like ? or name like ? or name like ?" , "%胃经%", "%胆经%", "%膀胱经%")
+    zusanyin = Meridian.where("meridian_type = ?" , 'zusanyin')
+    shousanyin = Meridian.where("meridian_type = ?" , 'shousanyin')
+    shousanyang = Meridian.where("meridian_type = ?" , 'shousanyang')
+    zusanyang = Meridian.where("meridian_type = ?" , 'zusanyang')
     meridian_id = acupuncture_point.try(:meridian).try(:id).try(:to_i)
     meridian_type = case
       when meridian_id.in?(zusanyin.map(&:id)) then 'zusanyin'
@@ -45,4 +53,5 @@ module ApplicationHelper
     end
     return meridian_type
   end
+
 end

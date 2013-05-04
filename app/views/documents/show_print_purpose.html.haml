@@ -1,9 +1,12 @@
 %p
-  名字: (足三阴）
+  名字:
   = @document.user_name
-  %p
-  %ol
-    - @document.acupuncture_points.each do |point|
-      %li
-        = point.position
+  - %w{zusanyin shousanyin shousanyang zusanyang}.each_with_index do |meridian_type, index|
+    %h1 #{index+1}.#{chinese_name(meridian_type)}
+    - Meridian.where("meridian_type =? ", meridian_type).each do |meridian|
+      %h3 #{meridian.name}
+      %ol
+        - @document.acupuncture_points.where("meridians.name = ? ", meridian.name).each do |point|
+          %li
+            = "#{point.position}"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002085905) do
+ActiveRecord::Schema.define(:version => 20130504010511) do
 
   create_table "acupuncture_points", :force => true do |t|
     t.string   "name"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(:version => 20121002085905) do
 
   create_table "meridians", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "meridian_type"
   end
 
   create_table "users", :force => true do |t|
