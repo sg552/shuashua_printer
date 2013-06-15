@@ -3,42 +3,42 @@
 .preview
   (足三阴：选好的穴位列表)
   %ol
-= image_tag "left_leg_with_points.png", :usemap => "##{meridian_category_name}", :id => meridian_category_name
+= image_tag "zusanyin.jpg", :usemap => "##{meridian_category_name}", :id => meridian_category_name
 = hidden_field_tag "point_sequence_#{meridian_category_name}"
 %map{:name=> meridian_category_name}
   -# 肝经
-  = point_area :coordinates => "60, 558", :title => "大敦", :point_id => "1", :radius => 7
-  = point_area :coordinates => "85, 547", :title => "行间", :point_id => "2"
-  = point_area :coordinates => "111, 537", :title => "太冲", :point_id => "3"
-  = point_area :coordinates => "167, 496", :title => "中封", :point_id => "4"
-  = point_area :coordinates => "170, 373", :title => "蠡沟", :point_id => "5"
-  = point_area :coordinates => "163, 326", :title => "中都", :point_id => "6"
-  = point_area :coordinates => "191, 191", :title => "膝关", :point_id => "7"
-  = point_area :coordinates => "191, 145", :title => "曲泉", :point_id => "8", :radius => 8
+  = point_area :coordinates => "180, 765", :title => "大敦",  :radius => 7
+  = point_area :coordinates => "243, 758", :title => "行间"
+  = point_area :coordinates => "300, 748", :title => "太冲"
+  = point_area :coordinates => "417, 675", :title => "中封"
+  = point_area :coordinates => "417, 490", :title => "蠡沟"
+  = point_area :coordinates => "409, 420", :title => "中都"
+  = point_area :coordinates => "425, 190", :title => "膝关"
+  = point_area :coordinates => "415, 100", :title => "曲泉", :radius => 8
 
   -# 脾经
-  = point_area :coordinates => "51, 567", :title => "隐白", :point_id => "9", :radius => 7
-  = point_area :coordinates => "83, 569", :title => "大都", :point_id => "10"
-  = point_area :coordinates => "110, 567", :title => "太白", :point_id => "11"
-  = point_area :coordinates => "129, 555", :title => "公孙", :point_id => "12"
-  = point_area :coordinates => "183, 508", :title => "商丘", :point_id => "13"
-  = point_area :coordinates => "198, 416", :title => "三阴交", :point_id => "14"
-  = point_area :coordinates => "183, 350", :title => "漏谷", :point_id => "15"
-  = point_area :coordinates => "173, 260", :title => "地机", :point_id => "16"
-  = point_area :coordinates => "168, 193", :title => "阴陵泉", :point_id => "17"
-  = point_area :coordinates => "175, 80", :title => "血海", :point_id => "28"
+  = point_area :coordinates => "180, 780", :title => "隐白", :radius => 7
+  = point_area :coordinates => "243, 775", :title => "大都"
+  = point_area :coordinates => "302, 773", :title => "太白"
+  = point_area :coordinates => "358, 760", :title => "公孙"
+  = point_area :coordinates => "446, 690", :title => "商丘"
+  = point_area :coordinates => "456, 566", :title => "三阴交"
+  = point_area :coordinates => "450, 450", :title => "漏谷"
+  = point_area :coordinates => "420, 302", :title => "地机"
+  = point_area :coordinates => "390, 190", :title => "阴陵泉"
+  = point_area :coordinates => "325, 85", :title => "血海"
 
   -# 肾经
-  = point_area :coordinates => "130, 575", :title => "涌泉", :point_id => "18"
-  = point_area :coordinates => "167, 546", :title => "然谷", :point_id => "19"
-  = point_area :coordinates => "227, 479", :title => "太溪", :point_id => "20"
-  = point_area :coordinates => "236, 496", :title => "大钟", :point_id => "21"
-  = point_area :coordinates => "223, 513", :title => "水泉", :point_id => "22"
-  = point_area :coordinates => "200, 493", :title => "照海", :point_id => "23"
-  = point_area :coordinates => "231, 438", :title => "复溜", :point_id => "24"
-  = point_area :coordinates => "211, 438", :title => "交信", :point_id => "25"
-  = point_area :coordinates => "224, 368", :title => "筑宾", :point_id => "26"
-  = point_area :coordinates => "208, 147", :title => "阴谷", :point_id => "27", :radius => 8
+  = point_area :coordinates => "130, 575", :title => "涌泉"
+  = point_area :coordinates => "418, 745", :title => "然谷"
+  = point_area :coordinates => "490, 679", :title => "太溪"
+  = point_area :coordinates => "505, 699", :title => "大钟"
+  = point_area :coordinates => "485, 714", :title => "水泉"
+  = point_area :coordinates => "460, 703", :title => "照海"
+  = point_area :coordinates => "500, 606", :title => "复溜"
+  = point_area :coordinates => "475, 606", :title => "交信"
+  = point_area :coordinates => "495, 490", :title => "筑宾"
+  = point_area :coordinates => "460, 100", :title => "阴谷", :radius => 8
 :javascript
   $(function(){
     $("#zusanyin").maphilight();
